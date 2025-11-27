@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const certificates = [
+    {
+        title: "AWS Certified Solutions Architect",
+        issuer: "Amazon Web Services",
+        date: "2024",
+        image: "/images/certificates/cert1.jpg",
+        credentialUrl: "https://example.com/cert1",
+    },
+    {
+        title: "React Developer Certification",
+        issuer: "Meta",
+        date: "2023",
+        image: "/images/certificates/cert2.jpg",
+        credentialUrl: "https://example.com/cert2",
+    },
+    // Weitere Zertifikate hinzufügen
+];
+---
+
+<Layout title="Zertifikate - Mein Portfolio">
+    <Header />
+    <main class="pt-32 pb-20">
+        <div class="container-custom">
+            <h1 class="text-5xl md:text-6xl font-bold text-center mb-6">
+                Zertifikate & <span class="gradient-text">Badges</span>
+            </h1>
+            <p
+                class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto"
+            >
+                Eine Übersicht meiner erworbenen Zertifikate und Badges, die
+                meine Kompetenz in verschiedenen Bereichen unterstreichen.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    certificates.map((cert) => (
+                        <div class="card-glass p-6 hover:scale-105 transition-transform duration-300">
+                            <div class="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden">
+                                <img
+                                    src={cert.image}
+                                    alt={cert.title}
+                                    class="w-full h-full object-cover"
+                                />
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">
+                                {cert.title}
+                            </h3>
+                            <p class="text-gray-400 mb-2">{cert.issuer}</p>
+                            <p class="text-sm text-gray-500 mb-4">
+                                {cert.date}
+                            </p>
+                            {cert.credentialUrl && (
+                                <a
+                                    href={cert.credentialUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-blue-400 hover:text-blue-300 transition-colors"
+                                >
+                                    Zertifikat ansehen →
+                                </a>
+                            )}
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+    <Footer />
+</Layout>

@@ -1,0 +1,70 @@
+---
+interface Props {
+    title: string;
+    description: string;
+    image: string;
+    tags: string[];
+    githubUrl?: string;
+    liveUrl?: string;
+}
+
+const { title, description, image, tags, githubUrl, liveUrl } = Astro.props;
+---
+
+<div
+    class="card-glass overflow-hidden group hover:scale-105 transition-transform duration-300"
+>
+    <div class="relative h-64 overflow-hidden">
+        <img
+            src={image}
+            alt={title}
+            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent"
+        >
+        </div>
+    </div>
+
+    <div class="p-6">
+        <h3 class="text-2xl font-bold mb-3 text-white">{title}</h3>
+        <p class="text-gray-400 mb-4 line-clamp-3">{description}</p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+            {
+                tags.map((tag) => (
+                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">
+                        {tag}
+                    </span>
+                ))
+            }
+        </div>
+
+        <div class="flex gap-4">
+            {
+                githubUrl && (
+                    <a
+                        href={githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-blue-400 hover:text-blue-300 transition-colors"
+                    >
+                        GitHub →
+                    </a>
+                )
+            }
+            {
+                liveUrl && (
+                    <a
+                        href={liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="text-purple-400 hover:text-purple-300 transition-colors"
+                    >
+                        Live Demo →
+                    </a>
+                )
+            }
+        </div>
+    </div>
+</div>

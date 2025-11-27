@@ -1,0 +1,41 @@
+---
+const skills = [
+    { name: "JavaScript", level: 90 },
+    { name: "TypeScript", level: 85 },
+    { name: "React", level: 88 },
+    { name: "Astro", level: 80 },
+    { name: "Tailwind CSS", level: 92 },
+    { name: "Node.js", level: 83 },
+    { name: "Python", level: 75 },
+    { name: "Git", level: 87 },
+];
+---
+
+<section class="py-20">
+    <div class="container-custom">
+        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">
+            <span class="gradient-text">Skills & Tools</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {
+                skills.map((skill) => (
+                    <div class="card-glass p-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="text-white font-semibold">
+                                {skill.name}
+                            </span>
+                            <span class="text-gray-400">{skill.level}%</span>
+                        </div>
+                        <div class="w-full bg-gray-800 rounded-full h-2">
+                            <div
+                                class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
+                                style={`width: ${skill.level}%`}
+                            />
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>
