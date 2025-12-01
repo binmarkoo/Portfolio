@@ -1,41 +1,77 @@
 ---
-const skills = [
-    { name: "JavaScript", level: 90 },
-    { name: "TypeScript", level: 85 },
-    { name: "React", level: 88 },
-    { name: "Astro", level: 80 },
-    { name: "Tailwind CSS", level: 92 },
-    { name: "Node.js", level: 83 },
-    { name: "Python", level: 75 },
-    { name: "Git", level: 87 },
+const skillCategories = [
+  {
+    title: 'FRONTEND',
+    color: 'from-blue-500 to-blue-600',
+    skills: [
+      { name: 'HTML5', image: '/images/skills/html.png' },
+      { name: 'CSS3', image: '/images/skills/css.png' },
+      { name: 'JavaScript', image: '/images/skills/javascript.jpg' },
+      { name: 'TypeScript', image: '/images/skills/typescript.png' },
+      { name: 'Angular', image: '/images/skills/angular.png' },
+      { name: 'React', image: '/images/skills/react.png' },
+      { name: 'Bootstrap', image: '/images/skills/bootstrap.png' },
+      { name: 'Astro', image: '/images/skills/astro.png' },
+      { name: 'Figma', image: '/images/skills/figma.png' }
+    ]
+  },
+  {
+    title: 'BACKEND',
+    color: 'from-green-500 to-green-600',
+    skills: [
+      { name: 'Node.js', image: '/images/skills/nodejs.svg' },
+      { name: 'MySQL', image: '/images/skills/mysql.svg' },
+      { name: 'MongoDB', image: '/images/skills/mongodb.svg' },
+      { name: 'PostgreSQL', image: '/images/skills/postgresql.png' }
+    ]
+  },
+  {
+    title: 'OTHERS',
+    color: 'from-purple-500 to-purple-600',
+    skills: [
+      { name: 'GitHub', image: '/images/skills/github.png' },
+      { name: 'Python', image: '/images/skills/python.png' },
+      { name: 'C', image: '/images/skills/c.png' },
+      { name: 'C#', image: '/images/skills/csharp.png' },
+      { name: 'Java', image: '/images/skills/java.png' },
+      { name: 'npm', image: '/images/skills/npm.svg' },
+      { name: 'Azure', image: '/images/skills/azure.png' },
+      { name: 'Postman', image: '/images/skills/postman.png' },
+      { name: 'Docker', image: '/images/skills/docker.png' }
+    ]
+  }
 ];
 ---
 
-<section class="py-20">
-    <div class="container-custom">
-        <h2 class="text-4xl md:text-5xl font-bold text-center mb-12">
-            <span class="gradient-text">Skills & Tools</span>
-        </h2>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {
-                skills.map((skill) => (
-                    <div class="card-glass p-6">
-                        <div class="flex justify-between mb-2">
-                            <span class="text-white font-semibold">
-                                {skill.name}
-                            </span>
-                            <span class="text-gray-400">{skill.level}%</span>
-                        </div>
-                        <div class="w-full bg-gray-800 rounded-full h-2">
-                            <div
-                                class="bg-gradient-to-r from-blue-500 to-purple-600 h-2 rounded-full transition-all duration-1000"
-                                style={`width: ${skill.level}%`}
-                            />
-                        </div>
-                    </div>
-                ))
-            }
+<section class="min-h-screen flex items-center py-20 bg-gradient-to-b from-gray-900 to-gray-950">
+  <div class="container-custom">
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
+      Skills
+    </h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+      {skillCategories.map(category => (
+        <div class="text-center">
+          <h3 class={`text-2xl font-bold mb-8 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+            {category.title}
+          </h3>
+          
+          <div class="grid grid-cols-4 gap-4">
+            {category.skills.map(skill => (
+              <div 
+                class="aspect-square rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all duration-300 cursor-pointer shadow-lg p-3"
+                title={skill.name}
+              >
+                <img 
+                  src={skill.image} 
+                  alt={skill.name}
+                  class="w-full h-full object-contain"
+                />
+              </div>
+            ))}
+          </div>
         </div>
+      ))}
     </div>
+  </div>
 </section>

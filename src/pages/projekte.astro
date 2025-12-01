@@ -3,6 +3,8 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import Footer from "../components/Footer.astro";
+import { imageConfig } from "astro:assets";
+import { getImage } from "astro:assets";
 
 const projects = [
     {
@@ -29,6 +31,30 @@ const projects = [
         image: "/images/Adventskalender.png",
         tags: ["Java", "JavaFX"],
         githubUrl: "https://github.com/binmarkoo/Adventskalender",
+    },
+    {
+        title: "B.I.O.M.B.O.",
+        description:
+            "Interaktive Webanwendung zur Visualisierung der Fahrtstrecke eines MBots",
+        image: "/images/BIOMBO.png",
+        tags: ["React", "Django", "MongoDB"],
+        githubUrl: "https://github.com/sonrotz0815/SYP_Mbot2_B.I.O.M.B.O.git",
+    },
+    {
+        title: "V.E.R.G.A. Gamelauncher",
+        description:
+            "Benutzerfreundlicher Gamelauncher zur Verwaltung und zum Starten von Spielen",
+        image: "/images/VERGA.png",
+        tags: ["Python", "PostgreSQL"],
+        githubUrl: "https://github.com/HaraldHaarig/V.E.R.G.A.git",
+    },
+    {
+        title: "Picture Drop",
+        description:
+            "Webanwendung zum einfachen Hochladen und Teilen von Bildern",
+        image: "/images/PictureDrop.png",
+        tags: ["Angular", "Node.js", "Express.js"],
+        githubUrl: "https://github.com/binmarkoo/Admin-Panel-PictureDrop.git",
     },
     // Weitere Projekte hinzufügen
 ];
