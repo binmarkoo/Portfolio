@@ -43,30 +43,41 @@ const skillCategories = [
 ];
 ---
 
-<section class="min-h-screen flex items-center py-20 bg-gradient-to-b from-gray-900 to-gray-950">
-  <div class="container-custom">
-    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16 text-white">
-      Skills
+<section class="min-h-screen flex items-center py-16 md:py-20 bg-gradient-to-b from-gray-900 to-gray-950">
+  <div class="container-custom px-4">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 text-white">
+      Skills & <span class="gradient-text">Tools</span>
     </h2>
     
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
       {skillCategories.map(category => (
         <div class="text-center">
-          <h3 class={`text-2xl font-bold mb-8 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
+          <h3 class={`text-xl md:text-2xl font-bold mb-6 md:mb-8 bg-gradient-to-r ${category.color} bg-clip-text text-transparent`}>
             {category.title}
           </h3>
           
-          <div class="grid grid-cols-4 gap-4">
+          <div class="grid grid-cols-4 gap-3 md:gap-4">
             {category.skills.map(skill => (
-              <div 
-                class="aspect-square rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all duration-300 cursor-pointer shadow-lg p-3"
-                title={skill.name}
-              >
-                <img 
-                  src={skill.image} 
-                  alt={skill.name}
-                  class="w-full h-full object-contain"
-                />
+              <div class="relative group">
+                <!-- Skill Icon -->
+                <div 
+                  class="aspect-square rounded-xl md:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:scale-110 hover:bg-white/10 transition-all duration-300 cursor-pointer shadow-lg p-2 md:p-3"
+                >
+                  <img 
+                    src={skill.image} 
+                    alt={skill.name}
+                    class="w-full h-full object-contain"
+                  />
+                </div>
+                
+                <!-- Tooltip - Hidden on mobile, visible on hover on desktop -->
+                <div class="hidden sm:block absolute -top-10 md:-top-12 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10">
+                  <div class="bg-gray-900 text-white px-2 md:px-3 py-1.5 md:py-2 rounded-lg text-xs md:text-sm font-medium whitespace-nowrap shadow-xl border border-white/20">
+                    {skill.name}
+                    <!-- Arrow -->
+                    <div class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-gray-900 border-r border-b border-white/20 rotate-45"></div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
