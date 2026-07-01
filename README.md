@@ -1,43 +1,65 @@
-# Astro Starter Kit: Minimal
+<div align="center">
 
-```sh
-npm create astro@latest -- --template minimal
+# 🌟 Portfolio 🚀
+
+### *Meine kleine Ecke im Internet* 🌐
+
+![Astro](https://img.shields.io/badge/Astro-BC52EE?style=for-the-badge&logo=astro&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Blazing Fast](https://img.shields.io/badge/⚡-blazing_fast-yellow?style=for-the-badge)
+
+*Wer ich bin, was ich kann und was ich gebaut hab — auf einer schnellen, statischen Seite.* 💨
+
+</div>
+
+---
+
+## 👀 Worum geht's?
+
+Meine persönliche Portfolio-Website. Statisch, schnell und responsive — gebaut mit **Astro** und **Tailwind CSS**. Zeigt meine Person, meinen Werdegang, meine Skills, Projekte und Zertifikate. ✨
+
+## ✨ Features
+
+- 👋 **About** — kurz zu mir
+- 🎓 **Education** — mein Werdegang als Timeline
+- 🧰 **Skills** — Tech-Icons soweit das Auge reicht
+- 💼 **Projekte** — ausgewählte Arbeiten
+- 📜 **Zertifikate** — die Papierkram-Seite
+- 📬 **Kontakt** — GitHub, LinkedIn, Mail
+- ⚡ **Superschnell** dank statischem Build
+
+## 🛠️ Tech Stack
+
+![Astro](https://img.shields.io/badge/Astro-BC52EE?style=flat&logo=astro&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS_v4-38B2AC?style=flat&logo=tailwind-css&logoColor=white)
+
+## 🚀 Los geht's
+
+```bash
+# 1️⃣ Clonen
+git clone https://github.com/binmarkoo/Portfolio.git
+cd Portfolio
+
+# 2️⃣ Installieren
+npm install
+
+# 3️⃣ Dev-Server starten 🏃‍♂️
+npm run dev   # 👉 http://localhost:4321
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+**Build & Preview:** 📦
+```bash
+npm run build     # ➡️ ./dist
+npm run preview   # 👀 Production-Preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🗂️ Projektstruktur
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```
+src/
+├── 🧩 components/   # About, Education, Skills, Header, Footer, ProjectCard
+├── 🏗️ layouts/      # Base Layout
+├── 📄 pages/        # index, projekte, zertifikate, kontakt
+└── 🎨 styles/       # Global Styles
+public/
+└── 🖼️ images/       # Profil, Projekte, Skills, Zertifikate
