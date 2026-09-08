@@ -1,14 +1,30 @@
 /* Tailwind v4 verwendet @import statt @tailwind */
 @import "tailwindcss";
 
+/* White Mode: aktiv sobald <html> die Klasse "light" traegt.
+   Dark bleibt der Standard, alle light:-Utilities sind rein additiv. */
+@custom-variant light (&:where(.light, .light *));
+
 /* Custom Styles */
 @layer base {
   * {
     scroll-behavior: smooth;
   }
-  
+
+  html {
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
   body {
     @apply bg-gray-950 text-gray-100 font-sans antialiased;
+  }
+
+  .light body {
+    @apply bg-gray-50 text-gray-900;
   }
 }
 
@@ -23,5 +39,25 @@
   
   .card-glass {
     @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl;
+  }
+
+  .light .card-glass {
+    @apply bg-white/70 border-gray-900/10 shadow-lg shadow-gray-900/5;
+  }
+}
+
+/* Icons des Theme-Toggles: ohne JS umgeschaltet, damit beim Laden
+   nie das falsche Symbol kurz sichtbar ist. */
+@layer utilities {
+  .theme-icon-light {
+    display: none;
+  }
+
+  .light .theme-icon-dark {
+    display: none;
+  }
+
+  .light .theme-icon-light {
+    display: block;
   }
 }

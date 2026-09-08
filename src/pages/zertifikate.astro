@@ -36,7 +36,7 @@ const certificates = [
                 Zertifikate & <span class="gradient-text">Badges</span>
             </h1>
             <p
-                class="text-xl text-gray-400 text-center mb-16 max-w-3xl mx-auto"
+                class="text-xl text-gray-400 light:text-gray-600 text-center mb-16 max-w-3xl mx-auto"
             >
                 Eine Übersicht meiner erworbenen Zertifikate und Badges, die
                 meine Kompetenz in verschiedenen Bereichen unterstreichen.
@@ -46,18 +46,18 @@ const certificates = [
                 {
                     certificates.map((cert) => (
                         <div class="card-glass p-6 hover:scale-105 transition-transform duration-300">
-                            <div class="aspect-video bg-gray-800 rounded-lg mb-4 overflow-hidden">
+                            <div class="aspect-video bg-gray-800 light:bg-gray-100 rounded-lg mb-4 overflow-hidden">
                                 <img
                                     src={cert.image}
                                     alt={cert.title}
                                     class="w-full h-full object-cover"
                                 />
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">
+                            <h3 class="text-xl font-bold text-white light:text-gray-900 mb-2">
                                 {cert.title}
                             </h3>
-                            <p class="text-gray-400 mb-2">{cert.issuer}</p>
-                            <p class="text-sm text-gray-500 mb-4">
+                            <p class="text-gray-400 light:text-gray-600 mb-2">{cert.issuer}</p>
+                            <p class="text-sm text-gray-500 light:text-gray-500 mb-4">
                                 {cert.date}
                             </p>
                             {cert.credentialUrl && (
@@ -65,7 +65,7 @@ const certificates = [
                                     href={cert.credentialUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="text-blue-400 hover:text-blue-300 transition-colors"
+                                    class="text-blue-400 light:text-blue-600 hover:text-blue-300 light:hover:text-blue-700 transition-colors"
                                 >
                                     Zertifikat ansehen →
                                 </a>
