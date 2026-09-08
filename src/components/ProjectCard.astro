@@ -21,19 +21,19 @@ const { title, description, image, tags, githubUrl, liveUrl } = Astro.props;
             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         <div
-            class="absolute inset-0 bg-gradient-to-t from-gray-950 via-transparent to-transparent"
+            class="absolute inset-0 bg-gradient-to-t from-gray-950 light:from-white via-transparent to-transparent"
         >
         </div>
     </div>
 
     <div class="p-6">
-        <h3 class="text-2xl font-bold mb-3 text-white">{title}</h3>
-        <p class="text-gray-400 mb-4 line-clamp-3">{description}</p>
+        <h3 class="text-2xl font-bold mb-3 text-white light:text-gray-900">{title}</h3>
+        <p class="text-gray-400 light:text-gray-600 mb-4 line-clamp-3">{description}</p>
 
         <div class="flex flex-wrap gap-2 mb-4">
             {
                 tags.map((tag) => (
-                    <span class="px-3 py-1 bg-white/10 rounded-full text-sm text-gray-300">
+                    <span class="px-3 py-1 bg-white/10 light:bg-gray-900/5 rounded-full text-sm text-gray-300 light:text-gray-700">
                         {tag}
                     </span>
                 ))
@@ -47,7 +47,7 @@ const { title, description, image, tags, githubUrl, liveUrl } = Astro.props;
                         href={githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-blue-400 hover:text-blue-300 transition-colors"
+                        class="text-blue-400 light:text-blue-600 hover:text-blue-300 light:hover:text-blue-700 transition-colors"
                     >
                         GitHub →
                     </a>
@@ -59,7 +59,7 @@ const { title, description, image, tags, githubUrl, liveUrl } = Astro.props;
                         href={liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="text-purple-400 hover:text-purple-300 transition-colors"
+                        class="text-purple-400 light:text-purple-600 hover:text-purple-300 light:hover:text-purple-700 transition-colors"
                     >
                         Live Demo →
                     </a>

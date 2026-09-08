@@ -28,7 +28,7 @@ const socialLinks = [
 ];
 ---
 
-<section class="min-h-screen flex items-center py-16 md:py-20 bg-gray-950">
+<section class="min-h-screen flex items-center py-16 md:py-20 bg-gray-950 light:bg-gray-50">
   <div class="container-custom">
     <!-- <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 md:mb-16 px-4">
       Über <span class="gradient-text">Mich</span>
@@ -47,7 +47,7 @@ const socialLinks = [
                 <img 
                   src="/images/Marko.jpg" 
                   alt="Marko Profilbild"
-                  class="w-full aspect-[3/4] object-cover rounded-2xl border-4 border-white/10"
+                  class="w-full aspect-[3/4] object-cover rounded-2xl border-4 border-white/10 light:border-gray-900/10"
                 />
               </div>
             </div>
@@ -84,8 +84,8 @@ const socialLinks = [
                   {info.icon}
                 </div>
                 <div class="flex-1 min-w-0">
-                  <p class="text-xs md:text-sm text-gray-400 uppercase tracking-wider mb-1">{info.label}</p>
-                  <p class="text-base md:text-lg text-white font-medium break-words">{info.value}</p>
+                  <p class="text-xs md:text-sm text-gray-400 light:text-gray-500 uppercase tracking-wider mb-1">{info.label}</p>
+                  <p class="text-base md:text-lg text-white light:text-gray-900 font-medium break-words">{info.value}</p>
                 </div>
               </div>
             ))}
@@ -93,10 +93,10 @@ const socialLinks = [
           
           <!-- Über mich Text - Ohne Titel -->
           <div class="card-glass p-6 md:p-8 flex-1">
-            <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 flex items-center gap-2">
+            <h3 class="text-xl md:text-2xl font-bold text-white light:text-gray-900 mb-3 md:mb-4 flex items-center gap-2">
               <span class="text-blue-500">●</span> Über mich
             </h3>
-            <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+            <p class="text-base md:text-lg text-gray-300 light:text-gray-700 leading-relaxed">
               Ich liebe es, Zeit in durchdachte und ästhetische Designs zu investieren und kreative Ideen visuell zum Leben zu erwecken. Besonders im Frontend-Development finde ich meine Leidenschaft, weil ich dort Gestaltung und Technik perfekt verbinden kann.
             </p>
           </div>

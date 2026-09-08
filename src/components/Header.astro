@@ -11,18 +11,18 @@ const navItems = [
     <div class="flex items-center justify-between">
       <!-- Logo -->
       <a href="/" class="relative group">
-        <span class="text-3xl font-bold text-white relative z-10">
+        <span class="text-3xl font-bold text-white light:text-gray-900 relative z-10">
           Portfolio<span class="text-blue-500">.</span>
         </span>
       </a>
       
       <!-- Desktop Navigation -->
-      <ul class="hidden md:flex items-center gap-1 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-2 py-2">
+      <ul class="hidden md:flex items-center gap-1 bg-white/5 light:bg-white/60 backdrop-blur-xl border border-white/10 light:border-gray-900/10 rounded-full px-2 py-2">
         {navItems.map(item => (
           <li>
             <a 
               href={item.href}
-              class="relative px-6 py-2 text-gray-300 hover:text-white transition-colors duration-300 rounded-full hover:bg-white/10 font-medium"
+              class="relative px-6 py-2 text-gray-300 light:text-gray-600 hover:text-white light:hover:text-gray-900 transition-colors duration-300 rounded-full hover:bg-white/10 light:hover:bg-gray-900/5 font-medium"
             >
               {item.name}
             </a>
@@ -30,6 +30,25 @@ const navItems = [
         ))}
       </ul>
       
+      <!-- Rechte Seite: Theme Toggle, CTA & Mobile Button -->
+      <div class="flex items-center gap-2 md:gap-3">
+      <!-- Theme Toggle -->
+      <button
+        id="theme-toggle"
+        class="p-2.5 rounded-full bg-white/5 light:bg-white/60 backdrop-blur-xl border border-white/10 light:border-gray-900/10 text-gray-300 light:text-gray-600 hover:text-white light:hover:text-gray-900 hover:bg-white/10 light:hover:bg-gray-900/5 transition-colors duration-300"
+        aria-label="Farbmodus wechseln"
+        title="Farbmodus wechseln"
+      >
+        <!-- Mond: sichtbar im Dark Mode -->
+        <svg class="theme-icon-dark w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z" />
+        </svg>
+        <!-- Sonne: sichtbar im White Mode -->
+        <svg class="theme-icon-light w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.36-6.36l-1.42 1.42M7.06 16.94l-1.42 1.42m12.72 0l-1.42-1.42M7.06 7.06L5.64 5.64M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+        </svg>
+      </button>
+
       <!-- CTA Button -->
       <a 
         href="/kontakt"
@@ -41,7 +60,7 @@ const navItems = [
       <!-- Mobile Menu Button -->
       <button 
         id="mobile-menu-btn" 
-        class="md:hidden text-white p-2 rounded-lg hover:bg-white/10 transition-colors"
+        class="md:hidden text-white light:text-gray-900 p-2 rounded-lg hover:bg-white/10 light:hover:bg-gray-900/5 transition-colors"
         aria-label="Menu"
       >
         <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -51,19 +70,20 @@ const navItems = [
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
+      </div>
     </div>
     
     <!-- Mobile Menu -->
     <div 
       id="mobile-menu" 
-      class="hidden md:hidden mt-4 bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden"
+      class="hidden md:hidden mt-4 bg-white/5 light:bg-white/80 backdrop-blur-xl border border-white/10 light:border-gray-900/10 rounded-2xl overflow-hidden"
     >
       <ul class="flex flex-col">
         {navItems.map((item, index) => (
           <li>
             <a 
               href={item.href} 
-              class="block px-6 py-4 text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 border-b border-white/5 last:border-b-0"
+              class="block px-6 py-4 text-gray-300 light:text-gray-600 hover:text-white light:hover:text-gray-900 hover:bg-white/10 light:hover:bg-gray-900/5 transition-all duration-300 border-b border-white/5 light:border-gray-900/10 last:border-b-0"
             >
               {item.name}
             </a>
@@ -83,6 +103,16 @@ const navItems = [
 </header>
 
 <script>
+  // Theme Toggle: merkt sich die Wahl in localStorage, Dark bleibt Standard.
+  const themeToggle = document.getElementById('theme-toggle');
+
+  themeToggle?.addEventListener('click', () => {
+    const isLight = document.documentElement.classList.toggle('light');
+    try {
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    } catch (e) {}
+  });
+
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   const menuIcon = document.getElementById('menu-icon');

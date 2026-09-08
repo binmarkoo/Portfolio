@@ -17,6 +17,17 @@ const { title, description = "Mein professionelles Portfolio" } = Astro.props;
         <meta name="description" content={description} />
         <title>{title}</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <script is:inline>
+            // Theme vor dem ersten Paint setzen, damit nichts kurz aufblitzt.
+            // Dark bleibt der Standard, White Mode nur wenn bewusst gewaehlt.
+            (function () {
+                try {
+                    if (localStorage.getItem("theme") === "light") {
+                        document.documentElement.classList.add("light");
+                    }
+                } catch (e) {}
+            })();
+        </script>
     </head>
     <body>
         <slot />
